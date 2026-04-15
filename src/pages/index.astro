@@ -1,17 +1,321 @@
 ---
-
+// The White Birch - Luxury NH Wedding Venue
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Demo 2</title>
-	</head>
-	<body>
-		<h1>Demo 2</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The White Birch - A luxury wedding venue in Littleton, New Hampshire. Where forever begins." />
+  <title>The White Birch | Luxury Wedding Venue</title>
+  
+  <!-- Font Preloads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=optional" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=optional" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" />
+  </noscript>
+
+  <style>
+    /* Reveal animation styles */
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    
+    .reveal-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero vignette effect */
+    .hero-vignette::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.25) 100%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="font-body bg-warm-light text-warm-dark antialiased">
+  
+  <!-- Fixed Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-5 md:px-12 lg:px-16">
+    <div class="flex items-center justify-between">
+      <a href="#" class="font-display text-lg md:text-xl text-warm-white/95 tracking-wide">
+        The White Birch
+      </a>
+      <div class="flex items-center gap-6 md:gap-10">
+        <a href="#" class="font-body text-xs md:text-sm uppercase tracking-[0.2em] text-warm-white/90 hover:text-white transition-colors">
+          Venue
+        </a>
+        <a href="#" class="font-body text-xs md:text-sm uppercase tracking-[0.2em] text-warm-white/90 hover:text-white transition-colors">
+          Weddings
+        </a>
+        <a href="#" class="font-body text-xs md:text-sm uppercase tracking-[0.2em] text-warm-white/90 hover:text-white transition-colors">
+          Contact
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen w-full overflow-hidden hero-vignette">
+    <img 
+      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600" 
+      alt="Beautiful outdoor wedding venue scene with warm lighting"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+      <h1 class="flex flex-col items-center">
+        <span class="font-display italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[96px] text-warm-white/95 leading-tight">
+          Where forever
+        </span>
+        <span class="font-display font-semibold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[120px] text-warm-white tracking-tight leading-none mt-1">
+          begins.
+        </span>
+      </h1>
+      
+      <div class="w-20 h-px bg-gold mt-8 mb-6"></div>
+      
+      <p class="font-body text-xs md:text-sm uppercase tracking-[0.25em] text-warm-white/60">
+        Littleton, New Hampshire · Est. 2018
+      </p>
+      
+      <a href="#" class="mt-10 font-body text-sm text-warm-white/90 hover:text-white transition-colors flex items-center gap-2 group">
+        Explore the venue 
+        <span class="transition-transform group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 1: The Ceremony (Dark) -->
+  <section class="bg-warm-dark py-24 md:py-32 lg:py-40 px-6">
+    <div class="reveal-card max-w-5xl mx-auto bg-[#242019] rounded-2xl overflow-hidden shadow-2xl">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-[45%]">
+          <img 
+            src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800" 
+            alt="Elegant wedding ceremony setup"
+            class="w-full h-64 md:h-full object-cover"
+          />
+        </div>
+        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
+            01 · Ceremony
+          </p>
+          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-white/95 leading-tight mb-4">
+            A moment that takes your breath away
+          </h2>
+          <div class="w-12 h-px bg-gold mb-6"></div>
+          <p class="font-body text-sm md:text-base text-warm-white/60 leading-relaxed">
+            Our sun-dappled birch grove creates an ethereal backdrop for your vows, where nature becomes witness to your forever promise.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The Reception (Light) -->
+  <section class="bg-warm-light py-24 md:py-32 lg:py-40 px-6">
+    <div class="reveal-card max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <div class="flex flex-col md:flex-row-reverse">
+        <div class="md:w-[45%]">
+          <img 
+            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800" 
+            alt="Beautiful wedding reception table setting"
+            class="w-full h-64 md:h-full object-cover"
+          />
+        </div>
+        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
+            02 · Reception
+          </p>
+          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-dark leading-tight mb-4">
+            An evening you&apos;ll never forget
+          </h2>
+          <div class="w-12 h-px bg-gold mb-6"></div>
+          <p class="font-body text-sm md:text-base text-warm-dark/60 leading-relaxed">
+            From intimate dinners beneath twinkling lights to grand celebrations in our restored barn, every evening here becomes a memory.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The Gardens (Dark) -->
+  <section class="bg-warm-dark py-24 md:py-32 lg:py-40 px-6">
+    <div class="reveal-card max-w-5xl mx-auto bg-[#242019] rounded-2xl overflow-hidden shadow-2xl">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-[45%]">
+          <img 
+            src="https://images.unsplash.com/photo-1585320806297-9794b3e4ffe0?w=800" 
+            alt="Lush garden venue setting"
+            class="w-full h-64 md:h-full object-cover"
+          />
+        </div>
+        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
+            03 · Gardens
+          </p>
+          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-white/95 leading-tight mb-4">
+            Where nature sets the scene
+          </h2>
+          <div class="w-12 h-px bg-gold mb-6"></div>
+          <p class="font-body text-sm md:text-base text-warm-white/60 leading-relaxed">
+            Wander through our curated gardens where every pathway leads to a picture-perfect moment waiting to be captured.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: The Experience (Light) -->
+  <section class="bg-warm-light py-24 md:py-32 lg:py-40 px-6">
+    <div class="reveal-card max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <div class="flex flex-col md:flex-row-reverse">
+        <div class="md:w-[45%]">
+          <img 
+            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800" 
+            alt="Wedding celebration moment"
+            class="w-full h-64 md:h-full object-cover"
+          />
+        </div>
+        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
+            04 · Experience
+          </p>
+          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-dark leading-tight mb-4">
+            Every detail, thoughtfully placed
+          </h2>
+          <div class="w-12 h-px bg-gold mb-6"></div>
+          <p class="font-body text-sm md:text-base text-warm-dark/60 leading-relaxed">
+            From the first consultation to your final farewell, our dedicated team ensures every moment reflects the story uniquely yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-warm-blush py-24 md:py-32 lg:py-40 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="font-display italic text-4xl md:text-5xl lg:text-6xl text-warm-dark leading-tight mb-6">
+        Your story starts here.
+      </h2>
+      <p class="font-body text-xs md:text-sm uppercase tracking-[0.25em] text-warm-dark/50 mb-10">
+        Let us help you create something unforgettable
+      </p>
+      <a 
+        href="#" 
+        class="inline-block font-body text-sm uppercase tracking-[0.15em] px-8 py-4 border border-gold text-gold hover:bg-gold hover:text-white transition-all duration-300"
+      >
+        Begin Planning
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative bg-warm-dark py-16 md:py-20 overflow-hidden">
+    <!-- Water ripple SVG background -->
+    <div class="absolute inset-0 z-0 opacity-100">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 400">
+        <defs>
+          <pattern id="ripples" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+            <ellipse cx="200" cy="200" rx="40" ry="15" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+            <ellipse cx="200" cy="200" rx="80" ry="30" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+            <ellipse cx="200" cy="200" rx="120" ry="45" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+            <ellipse cx="200" cy="200" rx="160" ry="60" fill="none" stroke="rgba(255,255,255,0.015)" stroke-width="1"/>
+            <ellipse cx="200" cy="200" rx="200" ry="75" fill="none" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#ripples)"/>
+      </svg>
+    </div>
+    
+    <!-- Border top -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-white/[0.06]"></div>
+    
+    <!-- Footer content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <!-- Left column -->
+        <div>
+          <p class="font-display italic text-2xl text-warm-white/90 mb-3">
+            The White Birch
+          </p>
+          <p class="font-body text-xs text-warm-white/30 leading-relaxed">
+            A sanctuary of romance in the heart of New Hampshire&apos;s White Mountains.
+          </p>
+        </div>
+        
+        <!-- Center column -->
+        <div class="flex flex-col items-start md:items-center">
+          <nav class="flex flex-col gap-3">
+            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
+              Venue
+            </a>
+            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
+              Weddings
+            </a>
+            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
+              Gallery
+            </a>
+            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
+              Contact
+            </a>
+          </nav>
+        </div>
+        
+        <!-- Right column -->
+        <div class="flex flex-col items-start md:items-end text-left md:text-right">
+          <p class="font-body text-xs text-warm-white/40 mb-1">
+            Littleton, NH 03561
+          </p>
+          <p class="font-body text-xs text-warm-white/40 mb-1">
+            hello@thewhitebirch.com
+          </p>
+          <p class="font-body text-xs text-warm-white/40">
+            (603) 555-0147
+          </p>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="mt-16 pt-8 border-t border-white/[0.06] text-center">
+        <p class="font-body text-[10px] text-warm-white/20 uppercase tracking-[0.15em]">
+          © 2024 The White Birch. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Intersection Observer Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealCards = document.querySelectorAll('.reveal-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealCards.forEach(card => observer.observe(card));
+    });
+  </script>
+</body>
 </html>

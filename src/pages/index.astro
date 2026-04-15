@@ -302,6 +302,7 @@
       const nav = document.querySelector('nav');
       let lastScroll = 0;
       window.addEventListener('scroll', () => {
+        if (!nav) return;
         const current = window.scrollY;
         if (current > lastScroll && current > 100) {
           nav.style.transform = 'translateY(-100%)';

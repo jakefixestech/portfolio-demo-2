@@ -9,30 +9,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="The White Birch - A luxury wedding venue in Littleton, New Hampshire. Where forever begins." />
   <title>The White Birch | Luxury Wedding Venue</title>
-  
-  <!-- Font Preloads -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=optional" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=optional" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" />
-  </noscript>
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=optional" /></noscript>
 
   <style>
-    /* Reveal animation styles */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #faf8f5;
+      color: #1a1714;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
     .reveal-card {
       opacity: 0;
       transform: translateY(60px);
       transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     }
-    
-    .reveal-card.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal-card.is-visible { opacity: 1; transform: translateY(0); }
 
-    /* Hero vignette effect */
     .hero-vignette::after {
       content: '';
       position: absolute;
@@ -40,83 +39,112 @@
       background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.25) 100%);
       pointer-events: none;
     }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 18rem;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .card-text {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .gold-rule {
+      width: 3rem;
+      height: 1px;
+      background-color: #c9a96e;
+      margin-bottom: 1.25rem;
+    }
+
+    nav a, footer a { text-decoration: none; }
+    nav a:hover, footer a:hover { text-decoration: underline; }
+
+    @media (min-width: 768px) {
+      .card-inner { flex-direction: row; height: 26rem; }
+      .card-inner.reverse { flex-direction: row-reverse; }
+      .card-img { width: 45%; height: 100%; }
+      .card-text { width: 55%; padding: 3rem 3.5rem; }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+      }
+    }
   </style>
 </head>
 
-<body class="font-body bg-warm-light text-warm-dark antialiased">
-  
+<body>
+
   <!-- Fixed Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-5 md:px-12 lg:px-16">
-    <div class="flex items-center justify-between">
-      <a href="#" class="font-display text-lg md:text-xl text-warm-white/95 tracking-wide">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 4rem;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);" aria-label="Main navigation">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="#" class="font-display" style="font-size:1.2rem;color:#ffffff;letter-spacing:0.05em;font-style:italic;">
         The White Birch
       </a>
-      <div class="flex items-center gap-6 md:gap-10">
-        <a href="#" class="font-body text-xs md:text-sm uppercase tracking-[0.2em] text-warm-white/90 hover:text-white transition-colors">
-          Venue
-        </a>
-        <a href="#" class="font-body text-xs md:text-sm uppercase tracking-[0.2em] text-warm-white/90 hover:text-white transition-colors">
-          Weddings
-        </a>
-        <a href="#" class="font-body text-xs md:text-sm uppercase tracking-[0.2em] text-warm-white/90 hover:text-white transition-colors">
-          Contact
-        </a>
+      <div style="display:flex;align-items:center;gap:2.5rem;">
+        <a href="#" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#ffffff;">Venue</a>
+        <a href="#" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#ffffff;">Weddings</a>
+        <a href="#" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#ffffff;">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative h-screen w-full overflow-hidden hero-vignette">
-    <img 
-      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600" 
-      alt="Beautiful outdoor wedding venue scene with warm lighting"
-      class="absolute inset-0 w-full h-full object-cover"
+  <section style="position:relative;height:100vh;width:100%;overflow:hidden;" class="hero-vignette">
+    <img
+      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600"
+      alt="Beautiful outdoor wedding venue with long floral table and warm lighting"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
     />
-    
-    <!-- Hero Content -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
-      <h1 class="flex flex-col items-center">
-        <span class="font-display italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[96px] text-warm-white/95 leading-tight">
+    <!-- Dark overlay for text readability -->
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;"></div>
+    <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:1.5rem;text-align:center;">
+      <div style="background:rgba(0,0,0,0.35);padding:3rem 4rem;border-radius:0.5rem;backdrop-filter:blur(2px);">
+      <h1 style="display:flex;flex-direction:column;align-items:center;">
+        <span class="font-display" style="font-style:italic;font-size:clamp(3rem,8vw,6rem);color:#ffffff;line-height:1.1;">
           Where forever
         </span>
-        <span class="font-display font-semibold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[120px] text-warm-white tracking-tight leading-none mt-1">
+        <span class="font-display" style="font-size:clamp(3.5rem,10vw,7.5rem);color:#ffffff;font-weight:600;letter-spacing:-0.02em;line-height:1;margin-top:0.25rem;">
           begins.
         </span>
       </h1>
-      
-      <div class="w-20 h-px bg-gold mt-8 mb-6"></div>
-      
-      <p class="font-body text-xs md:text-sm uppercase tracking-[0.25em] text-warm-white/60">
+      <div style="width:5rem;height:1px;background-color:#c9a96e;margin:2rem 0 1.5rem;"></div>
+      <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:#ffffff;">
         Littleton, New Hampshire · Est. 2018
       </p>
-      
-      <a href="#" class="mt-10 font-body text-sm text-warm-white/90 hover:text-white transition-colors flex items-center gap-2 group">
-        Explore the venue 
-        <span class="transition-transform group-hover:translate-x-1">→</span>
+      <a href="#" style="margin-top:2.5rem;font-size:0.875rem;color:#ffffff;display:inline-flex;align-items:center;gap:0.5rem;">
+        Explore the venue →
       </a>
+      </div>
     </div>
   </section>
 
   <!-- Section 1: The Ceremony (Dark) -->
-  <section class="bg-warm-dark py-24 md:py-32 lg:py-40 px-6">
-    <div class="reveal-card max-w-5xl mx-auto bg-[#242019] rounded-2xl overflow-hidden shadow-2xl">
-      <div class="flex flex-col md:flex-row">
-        <div class="md:w-[45%]">
-          <img 
-            src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800" 
-            alt="Elegant wedding ceremony setup"
-            class="w-full h-64 md:h-full object-cover"
-          />
-        </div>
-        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
-            01 · Ceremony
-          </p>
-          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-white/95 leading-tight mb-4">
+  <section style="background-color:#1a1714;padding:6rem 1.5rem;" aria-labelledby="ceremony-heading">
+    <div class="reveal-card" style="max-width:64rem;margin:0 auto;background-color:#242019;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.4);">
+      <div class="card-inner">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800"
+          alt="Gold wedding rings on elegant linen for the ceremony"
+        />
+        <div class="card-text">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.3em;color:#d4a853;margin-bottom:1rem;">01 · Ceremony</p>
+          <h2 id="ceremony-heading" class="font-display" style="font-style:italic;font-size:clamp(1.75rem,3vw,2.75rem);color:#ffffff;line-height:1.2;margin-bottom:1rem;">
             A moment that takes your breath away
           </h2>
-          <div class="w-12 h-px bg-gold mb-6"></div>
-          <p class="font-body text-sm md:text-base text-warm-white/60 leading-relaxed">
+          <div class="gold-rule"></div>
+          <p style="font-size:0.875rem;color:#c8bdb6;line-height:1.8;">
             Our sun-dappled birch grove creates an ethereal backdrop for your vows, where nature becomes witness to your forever promise.
           </p>
         </div>
@@ -125,25 +153,20 @@
   </section>
 
   <!-- Section 2: The Reception (Light) -->
-  <section class="bg-warm-light py-24 md:py-32 lg:py-40 px-6">
-    <div class="reveal-card max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl">
-      <div class="flex flex-col md:flex-row-reverse">
-        <div class="md:w-[45%]">
-          <img 
-            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800" 
-            alt="Beautiful wedding reception table setting"
-            class="w-full h-64 md:h-full object-cover"
-          />
-        </div>
-        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
-            02 · Reception
-          </p>
-          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-dark leading-tight mb-4">
-            An evening you&apos;ll never forget
+  <section style="background-color:#faf8f5;padding:6rem 1.5rem;" aria-labelledby="reception-heading">
+    <div class="reveal-card" style="max-width:64rem;margin:0 auto;background-color:#ffffff;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.08);">
+      <div class="card-inner reverse">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
+          alt="Elegant wedding reception table with floral centerpieces and candlelight"
+        />
+        <div class="card-text">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.3em;color:#8a6d3b;margin-bottom:1rem;">02 · Reception</p>
+          <h2 id="reception-heading" class="font-display" style="font-style:italic;font-size:clamp(1.75rem,3vw,2.75rem);color:#1a1714;line-height:1.2;margin-bottom:1rem;">
+            An evening you'll never forget
           </h2>
-          <div class="w-12 h-px bg-gold mb-6"></div>
-          <p class="font-body text-sm md:text-base text-warm-dark/60 leading-relaxed">
+          <div class="gold-rule"></div>
+          <p style="font-size:0.875rem;color:#4a4540;line-height:1.8;">
             From intimate dinners beneath twinkling lights to grand celebrations in our restored barn, every evening here becomes a memory.
           </p>
         </div>
@@ -152,25 +175,20 @@
   </section>
 
   <!-- Section 3: The Gardens (Dark) -->
-  <section class="bg-warm-dark py-24 md:py-32 lg:py-40 px-6">
-    <div class="reveal-card max-w-5xl mx-auto bg-[#242019] rounded-2xl overflow-hidden shadow-2xl">
-      <div class="flex flex-col md:flex-row">
-        <div class="md:w-[45%]">
-          <img 
-            src="https://images.unsplash.com/photo-1585320806297-9794b3e4ffe0?w=800" 
-            alt="Lush garden venue setting"
-            class="w-full h-64 md:h-full object-cover"
-          />
-        </div>
-        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
-            03 · Gardens
-          </p>
-          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-white/95 leading-tight mb-4">
+  <section style="background-color:#1a1714;padding:6rem 1.5rem;" aria-labelledby="gardens-heading">
+    <div class="reveal-card" style="max-width:64rem;margin:0 auto;background-color:#242019;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.4);">
+      <div class="card-inner">
+        <img class="card-img"
+          src="https://plus.unsplash.com/premium_photo-1673141390230-8b4a3c3152b1?q=80&w=1546&auto=format&fit=crop"
+          alt="Lush garden wedding venue with beautiful floral arrangements"
+        />
+        <div class="card-text">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.3em;color:#d4a853;margin-bottom:1rem;">03 · Gardens</p>
+          <h2 id="gardens-heading" class="font-display" style="font-style:italic;font-size:clamp(1.75rem,3vw,2.75rem);color:#ffffff;line-height:1.2;margin-bottom:1rem;">
             Where nature sets the scene
           </h2>
-          <div class="w-12 h-px bg-gold mb-6"></div>
-          <p class="font-body text-sm md:text-base text-warm-white/60 leading-relaxed">
+          <div class="gold-rule"></div>
+          <p style="font-size:0.875rem;color:#c8bdb6;line-height:1.8;">
             Wander through our curated gardens where every pathway leads to a picture-perfect moment waiting to be captured.
           </p>
         </div>
@@ -179,25 +197,20 @@
   </section>
 
   <!-- Section 4: The Experience (Light) -->
-  <section class="bg-warm-light py-24 md:py-32 lg:py-40 px-6">
-    <div class="reveal-card max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl">
-      <div class="flex flex-col md:flex-row-reverse">
-        <div class="md:w-[45%]">
-          <img 
-            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800" 
-            alt="Wedding celebration moment"
-            class="w-full h-64 md:h-full object-cover"
-          />
-        </div>
-        <div class="md:w-[55%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-          <p class="font-body text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold mb-4">
-            04 · Experience
-          </p>
-          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-warm-dark leading-tight mb-4">
+  <section style="background-color:#faf8f5;padding:6rem 1.5rem;" aria-labelledby="experience-heading">
+    <div class="reveal-card" style="max-width:64rem;margin:0 auto;background-color:#ffffff;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.08);">
+      <div class="card-inner reverse">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800"
+          alt="Joyful wedding celebration moment with guests dancing"
+        />
+        <div class="card-text">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.3em;color:#8a6d3b;margin-bottom:1rem;">04 · Experience</p>
+          <h2 id="experience-heading" class="font-display" style="font-style:italic;font-size:clamp(1.75rem,3vw,2.75rem);color:#1a1714;line-height:1.2;margin-bottom:1rem;">
             Every detail, thoughtfully placed
           </h2>
-          <div class="w-12 h-px bg-gold mb-6"></div>
-          <p class="font-body text-sm md:text-base text-warm-dark/60 leading-relaxed">
+          <div class="gold-rule"></div>
+          <p style="font-size:0.875rem;color:#4a4540;line-height:1.8;">
             From the first consultation to your final farewell, our dedicated team ensures every moment reflects the story uniquely yours.
           </p>
         </div>
@@ -206,28 +219,24 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="bg-warm-blush py-24 md:py-32 lg:py-40 px-6">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="font-display italic text-4xl md:text-5xl lg:text-6xl text-warm-dark leading-tight mb-6">
+  <section style="background-color:#f9f0ec;padding:6rem 1.5rem;text-align:center;" aria-labelledby="cta-heading">
+    <div style="max-width:40rem;margin:0 auto;">
+      <h2 id="cta-heading" class="font-display" style="font-style:italic;font-size:clamp(2.5rem,6vw,4rem);color:#1a1714;line-height:1.2;margin-bottom:1.5rem;">
         Your story starts here.
       </h2>
-      <p class="font-body text-xs md:text-sm uppercase tracking-[0.25em] text-warm-dark/50 mb-10">
+      <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:#6b5f58;margin-bottom:2.5rem;">
         Let us help you create something unforgettable
       </p>
-      <a 
-        href="#" 
-        class="inline-block font-body text-sm uppercase tracking-[0.15em] px-8 py-4 border border-gold text-gold hover:bg-gold hover:text-white transition-all duration-300"
-      >
+      <button type="button" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;padding:1rem 2.5rem;border:1px solid #6b4f1a;color:#6b4f1a;background:transparent;cursor:pointer;">
         Begin Planning
-      </a>
+      </button>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="relative bg-warm-dark py-16 md:py-20 overflow-hidden">
-    <!-- Water ripple SVG background -->
-    <div class="absolute inset-0 z-0 opacity-100">
-      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 400">
+  <footer style="position:relative;background-color:#1a1714;padding:5rem 1.5rem;overflow:hidden;">
+    <div style="position:absolute;inset:0;z-index:0;" aria-hidden="true">
+      <svg style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 400">
         <defs>
           <pattern id="ripples" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
             <ellipse cx="200" cy="200" rx="40" ry="15" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
@@ -240,82 +249,50 @@
         <rect width="100%" height="100%" fill="url(#ripples)"/>
       </svg>
     </div>
-    
-    <!-- Border top -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-white/[0.06]"></div>
-    
-    <!-- Footer content -->
-    <div class="relative z-10 max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-        <!-- Left column -->
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,0.06);" aria-hidden="true"></div>
+    <div style="position:relative;z-index:1;max-width:72rem;margin:0 auto;">
+      <div class="footer-grid" style="display:flex;flex-direction:column;gap:3rem;">
         <div>
-          <p class="font-display italic text-2xl text-warm-white/90 mb-3">
-            The White Birch
-          </p>
-          <p class="font-body text-xs text-warm-white/30 leading-relaxed">
-            A sanctuary of romance in the heart of New Hampshire&apos;s White Mountains.
-          </p>
+          <p class="font-display" style="font-style:italic;font-size:1.5rem;color:#ffffff;margin-bottom:0.75rem;">The White Birch</p>
+          <p style="font-size:0.75rem;color:#a09890;line-height:1.8;">A sanctuary of romance in the heart of New Hampshire's White Mountains.</p>
         </div>
-        
-        <!-- Center column -->
-        <div class="flex flex-col items-start md:items-center">
-          <nav class="flex flex-col gap-3">
-            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
-              Venue
-            </a>
-            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
-              Weddings
-            </a>
-            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
-              Gallery
-            </a>
-            <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-warm-white/40 hover:text-warm-white/70 transition-colors">
-              Contact
-            </a>
+        <div>
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#8a7e78;margin-bottom:1rem;font-weight:600;">Quick Links</p>
+          <nav style="display:flex;flex-direction:column;gap:0.75rem;" aria-label="Footer navigation">
+            <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:#a09890;">Venue</a>
+            <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:#a09890;">Weddings</a>
+            <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:#a09890;">Gallery</a>
+            <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:#a09890;">Contact</a>
           </nav>
         </div>
-        
-        <!-- Right column -->
-        <div class="flex flex-col items-start md:items-end text-left md:text-right">
-          <p class="font-body text-xs text-warm-white/40 mb-1">
-            Littleton, NH 03561
-          </p>
-          <p class="font-body text-xs text-warm-white/40 mb-1">
-            hello@thewhitebirch.com
-          </p>
-          <p class="font-body text-xs text-warm-white/40">
-            (603) 555-0147
-          </p>
+        <div>
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#8a7e78;margin-bottom:1rem;font-weight:600;">Get in Touch</p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <p style="font-size:0.75rem;color:#a09890;">Littleton, NH 03561</p>
+            <p style="font-size:0.75rem;color:#a09890;">hello@thewhitebirch.com</p>
+            <p style="font-size:0.75rem;color:#a09890;">(603) 555-0147</p>
+          </div>
         </div>
       </div>
-      
-      <!-- Copyright -->
-      <div class="mt-16 pt-8 border-t border-white/[0.06] text-center">
-        <p class="font-body text-[10px] text-warm-white/20 uppercase tracking-[0.15em]">
-          © 2024 The White Birch. All rights reserved.
+      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <p style="font-size:0.75rem;color:#a09890;text-transform:uppercase;letter-spacing:0.15em;">
+          © 2026 The White Birch. All rights reserved. This is a portfolio demo.
         </p>
       </div>
     </div>
   </footer>
 
-  <!-- Intersection Observer Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const revealCards = document.querySelectorAll('.reveal-card');
-      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
         });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-      
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
       revealCards.forEach(card => observer.observe(card));
     });
   </script>
+
 </body>
 </html>

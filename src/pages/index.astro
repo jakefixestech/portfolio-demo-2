@@ -6,7 +6,6 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="The White Birch - A luxury wedding venue in Littleton, New Hampshire. Where forever begins." />
   <title>The White Birch | Luxury Wedding Venue</title>
@@ -88,18 +87,24 @@
 <body>
 
   <!-- Fixed Navigation -->
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 4rem;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);" aria-label="Main navigation">
-    <div style="display:flex;align-items:center;justify-content:space-between;">
-      <a href="#" class="font-display" style="font-size:1.2rem;color:#ffffff;letter-spacing:0.05em;font-style:italic;">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 1.5rem;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);" aria-label="Main navigation">
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:72rem;margin:0 auto;">
+      <a href="#" class="font-display" style="font-size:1.1rem;color:#ffffff;letter-spacing:0.05em;font-style:italic;white-space:nowrap;">
         The White Birch
       </a>
-      <div style="display:flex;align-items:center;gap:2.5rem;">
-        <a href="#" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#ffffff;">Venue</a>
-        <a href="#" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#ffffff;">Weddings</a>
-        <a href="#" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:#ffffff;">Contact</a>
+      <div style="display:flex;align-items:center;gap:1.5rem;">
+        <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:#ffffff;white-space:nowrap;display:none;" class="nav-link">Venue</a>
+        <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:#ffffff;white-space:nowrap;display:none;" class="nav-link">Weddings</a>
+        <a href="#" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:#ffffff;white-space:nowrap;display:none;" class="nav-link">Contact</a>
       </div>
     </div>
   </nav>
+
+  <style>
+    @media (min-width: 640px) {
+      .nav-link { display:inline !important; }
+    }
+  </style>
 
   <!-- Hero Section -->
   <section style="position:relative;height:100vh;width:100%;overflow:hidden;" class="hero-vignette">
@@ -292,6 +297,21 @@
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
       revealCards.forEach(card => observer.observe(card));
+
+      // Hide nav on scroll down, show on scroll up
+      const nav = document.querySelector('nav');
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const current = window.scrollY;
+        if (current > lastScroll && current > 100) {
+          nav.style.transform = 'translateY(-100%)';
+          nav.style.transition = 'transform 0.3s ease';
+        } else {
+          nav.style.transform = 'translateY(0)';
+          nav.style.transition = 'transform 0.3s ease';
+        }
+        lastScroll = current;
+      });
     });
   </script>
 
